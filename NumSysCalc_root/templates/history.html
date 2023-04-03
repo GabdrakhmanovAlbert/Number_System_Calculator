@@ -1,0 +1,12 @@
+<div id="history-page" class="class-text">
+  <h1>Последние расчёты калькуляторов</h1>
+  <ol>
+    {% for exp in history %}
+      {% if exp.initial_ss and exp.next_ss %}
+        <li>{{ exp.initial_num }}<sub>{{ exp.initial_ss }}</sub> = {{ exp.next_num }}<sub>{{ exp.next_ss }}</sub> было выполнено в {{ exp.dt }}</li>
+      {% else %}
+        <li>{{ exp.initial_num }} = {{ exp.next_num }} было выполнено в {{ exp.dt }}</li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</div>

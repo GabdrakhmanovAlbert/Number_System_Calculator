@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Спасибо за отзыв!{% endblock %}
+{% block index %}
+<div class="thanks-block-wrapper">
+	<div class="thanks-block">
+		{% if name == 'Undefined' %}
+		<h1 class="thanks-header">Спасибо, что отправили ваши данные!</h1>
+		{% else %}
+		<h1 class="thanks-header">Спасибо что отправили ваши данные, {{ name }}!</h1>
+		{% endif %}
+		<img class="thanks-img" src="https://img.freepik.com/free-vector/saas-technology-abstract-concept-illustration-software-as-service-cloud-computing-application-service-customer-access-software-licensing-subscription-pricing_335657-960.jpg?w=1060&t=st=1680530972~exp=1680531572~hmac=9fa75276b3a98e781307ca69bf831af6e3b4efc9a5969b69d18e69673a74ecbc" alt="img..">
+		<span><a class="right-link" href="{% url "main_page" %}?display_intro=none&class_intro=no&display_rep=block&class_rep=active">Назад</a></span>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,240 @@
+{% load static %}
+
+<form action="{% url "main_page" %}"
+  method="post"
+  id="CalcForm"
+  name="CalcForm"
+  onsubmit="ValidateCalcForm()"
+>
+{% csrf_token %}
+  <table width="760" align="center" id="table-calc-wrapper">
+    <tbody id="table-calc">
+      <tr>
+        <td id="td-input" align="center" colspan="2">
+            {{ NumSysCalcForm.isRight }}
+            <label> {{ NumSysCalcForm.calc_input.label }} {{ NumSysCalcForm.calc_input }}</label>
+        </td>
+      </tr>
+      <tr id="line-checkbox">
+        <td class="left-checkbox">
+            <fieldset class="radiobox" id="left-radiobox">
+                <legend class="font-blue label-desc">
+                    {{ NumSysCalcForm.ss.label }}
+                </legend>
+                {% for radio in NumSysCalcForm.ss %}
+                <div class="font-blue num-sys-labels">
+                    {{ radio }}
+                </div>
+                {% endfor %}
+                <label id="left-other" style="display: none;">{{ NumSysCalcForm.other_ss.label }} {{ NumSysCalcForm.other_ss }}</label>
+            </fieldset>
+        </td>
+        <td class="right-checkbox">
+            <fieldset class="radiobox" id="right-radiobox">
+                <legend class="font-green label-desc">
+                    {{ NumSysCalcForm.ss1.label }}
+                </legend>
+                {% for radio in NumSysCalcForm.ss1 %}
+                <div class="font-green num-sys-labels">
+                    {{ radio }}
+                </div>
+                {% endfor %}
+                <label id="right-other" style="display: none;"> {{ NumSysCalcForm.other_ss1.label }} {{ NumSysCalcForm.other_ss1 }}</label>
+            </fieldset>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button
+            type="submit"
+            id="btn_send"
+            name="btn_send"
+            class="btn-submit">ПЕРЕВЕСТИ
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+
+{% if resultNumSysCalcForm %}
+<div style="margin: auto; width: 6em;">
+	<h1>Ответ:</h1>
+	<h2>{{ resultNumSysCalcForm }}</h2>
+</div>
+{% else %}
+<!--here will be answer-->
+{% endif %}
+
+<script src="{% static "js/ValidateForm.js" %}"></script>
+<!-- <script>
+  if (window.performance.navigation.type == 1) {
+    manageCustomOnput();
+  }
+</script> -->
+
+<!-- return ValidateCalcForm()-->
+  <!--action="{% url "main_page" %}"-->
+  <!--  onsubmit="ValidateCalcForm()"-->
+<!--<h1>Ожидания:</h1>
+<form
+  id="CalcFormDEMO"
+  name="CalcFormDEMO"
+  method="post"
+  action="{% url "main_page" %}"
+  onsubmit="ValidateCalcForm()"
+>
+  {% csrf_token %}
+  <table width="760" align="center" id="table-calc-wrapper">
+    <tbody id="table-calc">
+      <tr>
+        <td id="td-input" align="center" colspan="2">
+          <input type="hidden" name="isRight" value="1">
+          <label
+            >Введите число:
+            <input
+              type="text"
+              id="calc-input"
+              name="calc-input"
+              value="0"
+              autocomplete="off"
+            />
+          </label>
+        </td>
+      </tr>
+      <tr id="line-checkbox">
+        <td class="left-checkbox">
+          <fieldset>
+          <legend class="font-blue label-desc">
+            Его
+            система счисления
+          </legend>
+          <font class="font-blue">Двоичная</font
+          ><input
+            type="RADIO"
+            name="ss"
+            id="radio1"
+            value="2"
+            onclick="offOtherLeft()"
+          /><br />
+          <font class="font-blue">Троичная</font
+          ><input
+            type="RADIO"
+            name="ss"
+            id="radio1"
+            value="3"
+            checked=""
+            onclick="offOtherLeft()"
+          /><br />
+          <font class="font-blue">Восьмеричная</font
+          ><input
+            type="RADIO"
+            name="ss"
+            id="radio1"
+            value="8"
+            onclick="offOtherLeft()"
+          /><br />
+          <font class="font-blue">Десятичная</font
+          ><input
+            type="RADIO"
+            name="ss"
+            id="radio1"
+            value="10"
+            onclick="offOtherLeft()"
+          /><br />
+          <font class="font-blue">Шестнадцатиричная</font
+          ><input
+            type="RADIO"
+            name="ss"
+            id="radio1"
+            value="16"
+            onclick="offOtherLeft()"
+          /><br />
+          <font class="font-blue">Другая</font
+          ><input
+            type="RADIO"
+            name="ss"
+            id="radio1"
+            value="-" 
+            onclick="onOtherLeft()"
+          /><br />
+          <label style="display: none" id="left-other" class="font-blue">
+            Какая? (число)
+            <input type="text" name="ssdrugaya" value="" />
+          </label>
+          </fieldset>
+        </td>
+        <td class="right-checkbox">
+          <fieldset>
+          <legend class="font-green label-desc">
+            Перевести
+            в
+          </legend>
+          <input
+            type="RADIO"
+            name="ss1"
+            id="radio2"
+            value="2"
+            checked=""
+            onclick="offOtherRight()"
+          />
+          <font class="font-green">Двоичную</font><br />
+          <input
+            type="RADIO"
+            name="ss1"
+            id="radio2"
+            value="3"
+            onclick="offOtherRight()"
+          />
+          <font class="font-green">Троичную</font><br />
+          <input
+            type="RADIO"
+            name="ss1"
+            id="radio2"
+            value="8"
+            onclick="offOtherRight()"
+          />
+          <font class="font-green">Восьмеричную</font><br />
+          <input
+            type="RADIO"
+            name="ss1"
+            id="radio2"
+            value="10"
+            onclick="offOtherRight()"
+          />
+          <font class="font-green">Десятичную</font><br />
+          <input
+            type="RADIO"
+            name="ss1"
+            id="radio2"
+            value="16"
+            onclick="offOtherRight()"
+          />
+          <font class="font-green">Шестнадцатиричную</font><br />
+          <input
+            type="RADIO"
+            name="ss1"
+            id="radio2"
+            value="-"
+            onclick="onOtherRight()"
+          />
+          <font class="font-green">Другую</font><br />
+          <label style="display: none" id="right-other" class="font-green">
+            Какую? (число)
+            <input type="text" name="ss1drugaya" value="" />
+          </label>
+          </fieldset>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button
+            type="submit"
+            id="btn-send"
+            name="btn-send">ПЕРЕВЕСТИ
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form> -->

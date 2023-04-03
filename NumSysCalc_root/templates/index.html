@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Калькуляторы{% endblock %}
+{% block index %}
+<main class="content">
+  <ul id="select-bar">
+    <li class="select-btn {{ intro_css.class }}" id="intro_page" onclick="view_change(0);">
+      Инструкция
+    </li>
+    <li class="select-btn {{ calc_css.class }}" id="simple_calc_page" onclick="view_change(1);">
+      Обычный Калькулятор
+    </li>
+    <li class="select-btn {{ NumSys_css.class }} " id="num_sys_calc_page" onclick="view_change(2);">
+      Калькулятор Систем Счисления
+    </li>
+    <li class="select-btn" id="theory_page" onclick="view_change(3);">
+      Теория
+    </li>
+    <li class="select-btn" id="history_page" onclick="view_change(4);">
+      История
+    </li>
+    <li class="select-btn {{ Rep_css.class }} " id="report_page" onclick="view_change(5);">
+      Сообщить о проблеме
+    </li>
+  </ul>
+  <!--<br clear="all" />-->
+  <div class="page-container">
+
+    <div class="intro-page-wrapper bg-light-orange" style="display: {{ intro_css.display }}">
+      {% include 'intro.html' %}
+    </div>
+    <div class="simple-calc-wrapper bg-darkred" style="display: {{ calc_css.display }}">
+      {% include 'calc.html' %}
+    </div>
+    <div class="num-sys-calc-wrapper bg-light-blue" style="display: {{ NumSys_css.display }}">
+      {% include 'NumSysCalc.html' %}
+    </div>
+    <div class="theory-wrapper bg-purple" style="display: none">
+      {% include 'theory.html' %}
+    </div>
+    <div class="history-wrapper bg-olive" style="display: none">
+      {% include 'history.html' %}
+    </div>
+    <div class="report-wrapper bg-cyan" style="display: {{ Rep_css.display }}">
+      {% include 'report.html' %}
+    </div>
+
+  </div>
+  <!--смена подстраниц через кнопки -->
+  <script src="{% static "js/changeMiniPages.js" %}"></script>
+</main>
+{% endblock %}

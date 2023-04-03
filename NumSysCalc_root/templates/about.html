@@ -1,0 +1,119 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albert CV</title>
+    <link rel="stylesheet" href="{% static "css/about.css" %}">
+</head>
+
+<body class="main_content">
+    <header>
+        <h1 class="header">About me</h1>
+    </header>
+    <div class="nav_container">
+        <div class="info">
+            <img src="https://sun9-48.userapi.com/impf/c853524/v853524002/4ecd5/SciAkdBl3BY.jpg?size=1080x893&quality=96&sign=1c6ba49daaafe2e98c4c2e53829bfbc1&type=album"
+                    alt="Фотография не найдена" class="avatar">
+            <div class="info_text">
+                <h1 class="my_name">Gabdrakhmanov Albert</h1>
+                <p>Я - <strong>ученик</strong> 10 класса <em>гимназии №102 имени М.С. Устиновой</em> города Казани</p>
+                <p>Я люблю программировать, звёздные войны, путешествовать, кушать.</p>
+            </div>
+        </div>
+
+        <div class="card_container">
+            <div class="card bg-green card-margin-right">
+                <h2>Мои Социальные сети:</h2>
+                <ul type="square" class="center_lists padding_20">
+                    <li><a href="https://vk.com/id507844788" target="_blank">Вконтакте</a></li>
+                    <li><a href="https://github.com/GabdrakhmanovAlbert" target="_blank">Гитхаб</a></li>
+                    <li><a href="https://t.me/hxBQd" target="_blank">Telegram</a></li>
+                </ul>
+            </div>
+
+            <div class="card bg-yellow card-margin-left">
+                <h2>Мои хобби:</h2>
+                <ol type="I" class="center_lists">
+                    <li>Программирование</li>
+                    <li>Плавание</li>
+                    <li>Резьба по дереву</li>
+                    <li>Лыжи</li>
+                </ol>
+            </div>
+        </div>
+
+        <hr>
+        
+        <h2>Мои навыки.</h2>
+        <table border="2" class="table">
+            <tr>
+                <th>Навык</th>
+                <th>Иконка</th>
+                <th>Комментарий</th>
+            </tr>
+            <tr>
+                <td>Python</td>
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="failed translate from wikipedia" width="135px"></td>
+                <td>От основ синтаксиса языка до декораторов класса, я разбираюсь во многих фишках этого языка. Мой первый ЯП
+                </td>
+            </tr>
+            <tr>
+                <td>HTML</td>
+                <td><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.pqcPskVdTrJqfhZ-Z49AtQHaHn%26pid%3DApi&f=1&ipt=2d103aca1d5a96647fa74e4c9dd293469022916858829d8675780f1e53cb7309&ipo=images" alt="image.." width="135px"></td>
+                <td>Недавно начал изучать его, и почти во всём освоился. Но кое-что нужно подучить</td>
+            </tr>
+            <tr>
+                <td>MySQL</td>
+                <td><img src="https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg" alt="img..." width="135px"></td>
+                <td>Изучал его для работы с Django. Могу писать запросы в таблицы (кроме JOIN), создавать таблицы.</td>
+            </tr>
+            <tr>
+                <td>Django(Python)</td>
+                <td><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fnedbatchelder.com%2Fpix%2Fdjango-icon-256.png&f=1&nofb=1&ipt=905607fc7f0e8657c6575178ee0697c1a231857481b148a0f65f3d9e0889ed73&ipo=images" alt="img..." width="135px"></td>
+                <td>Данный фреймворк начал изучать буквально несколько дней назад. Разобрался с принципом его работы. Могу
+                    составить несложный многостраничный сервер, поднять его.</td>
+            </tr>
+        </table>
+
+        <hr>
+        <div class="bg-red card card-center" id="youtube">
+            <h2>Youtube курсы, рекомендуемые мной</h2>
+            <p><a id="list_YT" href="{% url "youtube_page" %}">Посмотреть список</a></p>
+        </div>  
+
+        <hr>
+        <div class="contact">
+            <h2>Связаться со мной</h2>
+            <form action="" method="post" id="contact_form" class="form">
+                {% csrf_token %}
+                <!-- <div class="row"> -->
+                    <div class="form-group">
+                        <label for="name">Введите имя:</label>
+                        <input type="text" name="name" placeholder="Ваше имя...">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Введите email*:</label>
+                        <input type="email" name="email" placeholder="youraddress@mail.com" class="_req">
+                    </div>
+                <!-- </div> -->
+
+                <div class="form-group">
+                    <label for="message">Ваше сообщение*:</label>
+                    <textarea name="message" id="message" class="_req"></textarea>
+                </div>
+
+                <input type="submit" class="btn" value="Contact with me">
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>Резюме составлено 31.03.2023</p>
+    </footer>
+    <script src="{% static "js/about.js" %}"></script>
+</body>
+</html>
+

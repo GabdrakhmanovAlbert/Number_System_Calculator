@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>SimCalc</title>
+	<link rel="stylesheet" href="simple_calc_styles.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+	<div class="calc">
+		<div class="calc-screen-wrapper">
+			<textarea type="text" id="calc-screen" autocomplete="off" placeholder="Enter:" rows="1" autofocus="autofocus">
+0</textarea>
+			<!--wrap="off" для одной строки -->
+			<!--maxlength="39"-->
+			<!--value="0"-->
+			<p id="hidden-answer">0</p>
+		</div>
+		<div class="buttons">
+			<div class="btn-row">
+				<div class="calc-btn-parent bg-gray ac">ac</div>
+				<div class="calc-btn-parent bg-gray plus-minus">+/-</div>
+				<div class="calc-btn-parent bg-gray percent">%</div>
+				<div class="calc-btn-parent bg-gray division">/</div>
+			</div>
+			<div class="btn-row">
+				<div class="calc-btn-parent seven">7</div>
+				<div class="calc-btn-parent eight">8</div>
+				<div class="calc-btn-parent nine">9</div>
+				<div class="calc-btn-parent bg-orange multiply">x</div>
+			</div>
+			<div class="btn-row">
+				<div class="calc-btn-parent four">4</div>
+				<div class="calc-btn-parent five">5</div>
+				<div class="calc-btn-parent six">6</div>
+				<div class="calc-btn-parent bg-orange minus">-</div>
+			</div>
+			<div class="btn-row">
+				<div class="calc-btn-parent one">1</div>
+				<div class="calc-btn-parent two">2</div>
+				<div class="calc-btn-parent three">3</div>
+				<div class="calc-btn-parent bg-orange plus">+</div>
+			</div>
+			<div class="btn-row">
+				<div class="calc-btn-parent bg-orange invertor">Inv</div>
+				<div class="calc-btn-parent zero">0</div>
+				<div class="calc-btn-parent dot">.</div>
+				<div class="calc-btn-parent bg-orange equal">=</div>
+			</div>
+		</div>
+
+		<!--скрипт блокирующий ввод букв-->
+		<script defer>
+			$('body').on('input', '#calc-screen', function () {
+				this.value = this.value.replace(/[^\d\.+\-=x/%()^]+/g, '')
+			});
+		</script>
+		<!-- логика работы простого калькулятора -->
+		<script src="vars.js"></script>
+		<script src="solver.js"></script>
+		<script src="user_input.js"></script>
+	</div>
+</body>
+
+</html>

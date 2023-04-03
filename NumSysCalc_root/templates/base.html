@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %} {% endblock %}</title>
+    <!--основные стили страницы-->
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+    <!--Подключаем библиотеку jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!--стили простого калькулятора-->
+    <link rel="stylesheet" href="{% static "css/simple_calc_styles.css" %}" />
+    <!--стили калькулятора систем счисления-->
+    <link rel="stylesheet" href="{% static "css/NumSysCalc_styles.css" %}" />
+
+    <link rel="stylesheet" href="{% static "css/reportForm.css" %}">
+
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <a href="{% url "main_page" %}">
+          <img src="{% static "img/calc_ico.png" %}" height="70px" alt="иконка
+          отсутствует..." />
+          <b><i>Проект "Онлайн-калькуляторы"</i></b>
+        </a>
+        <a href="{% url "about_page" %}" target="_blank">
+          <img src="{% static "img/programmer.png" %}" height="70px" alt="иконка
+          отсутствует..." />
+          <b>Об авторе</b>
+        </a>
+      </header>
+
+      {% block index %} {% endblock %}
+
+      <footer class="footer">
+        <ul>
+          <li>2022-2023 © Габдрахманов Альберт</li>
+          <li>
+            Пользуясь данным сайтом Вы соглашаетсь на то, что всю
+            ответственность за результат расчета Вы берете на себя.
+          </li>
+          <li>Не присваиваем себе авторства</li>
+        </ul>
+        <img src="{% static "img/monitor.png" %}" height="90px" alt="картинка
+        отсутствует..." />
+      </footer>
+    </div>
+  </body>
+</html>
+
+<!--<p>Онлайн-калькуляторы: классический, перевод по системам счисления</p>-->

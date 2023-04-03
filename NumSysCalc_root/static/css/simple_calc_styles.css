@@ -1,0 +1,125 @@
+
+/*шшрифт Algerian*/
+@font-face {
+    font-family: 'ALGER';
+    src: url('../fonts/ALGER.eot');
+    src: local('ALGER'), url('../fonts/ALGER.woff') format('woff'), url('../fonts/ALGER.ttf') format('truetype');
+}
+
+.calc {
+    margin: 50px auto;
+    width: 300px;
+    height: 520px;
+    /*border: 1px solid #000;*/
+    border-radius: 20px;
+    background: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 18px;
+    align-items: end;
+}
+
+.calc-screen-wrapper {
+    height: 170px;
+    padding: 5px;
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+    justify-items: end;
+    align-items: end;
+    grid-gap: 11px;
+}
+
+.buttons {
+    display: block;
+}
+
+.btn-row {
+    display: grid;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    grid-template-areas:
+        "ac plusminus percent division";
+    grid-gap: 7px;
+    justify-items: center;
+}
+/*"seven eight nine multiply"
+"four five six minus"
+"one two three plus"
+"invertor zero dot equal";*/
+
+#hidden-answer {
+    width: 90%;
+    text-align: right;
+    color: #333;
+    font-size: 1.2rem;
+    font-family: 'ALGER', 'Arial', 'sans-serif';
+    line-height: 100%;
+    align-self: start;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#id_mathExpInput {
+    width: 90%;
+
+    overflow: hidden; /*убирает полосу прокрутки*/
+    resize: none; /*убрать изменение размера*/
+    background: #000;
+
+    text-align: right;
+    color: #fff;
+    font-size: 2rem;
+    font-family: 'ALGER', 'Arial', 'sans-serif';
+    line-height: 100%;
+
+    outline: none;
+    /*для mozilla*/
+    -moz-appearance: none;
+    border: 1px solid #999; 
+
+    padding: 0;
+    border: 0;
+    border-bottom: 2px solid #333; /*нижняя черта на экране*/
+    /*margin-bottom: 20px;*/
+}
+
+
+
+/*.calc-screen-wrapper p {
+    text-align: right;
+    font-size: 4rem;
+    font-family: 'ALGER', 'Arial', 'sans-serif';
+    margin: 0;
+    margin-bottom: 20px;
+}*/
+
+.calc-btn-parent {
+    width: 60px;
+    height: 60px;
+    background: #333;
+    border-radius: 60%;
+    text-align: center;
+    line-height: 375%;
+    cursor: pointer;
+    user-select: none;
+}
+
+.calc-btn-parent:hover {
+    filter: brightness(140%);
+}
+
+.calc-btn-parent:active {
+    filter: brightness(80%);
+}
+
+.calc-btn-parent.bg-gray {
+    background: #a6a6a6;
+}
+
+.calc-btn-parent.bg-orange {
+    background: #ff7b00;
+}
+
+.calc-btn-parent.bg-green {
+    background: #3cff00;
+}

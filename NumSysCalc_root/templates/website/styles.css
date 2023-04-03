@@ -1,0 +1,186 @@
+/* remove margins, page settings */
+
+body {
+  margin: 0 auto;
+  font-family: "Times New Roman", sans-serif;
+  font-size: 16px;
+  color: #111;
+  max-width: 80%;
+  /*background-image: url("img/back1.jpg");*/
+  background-image: url("https://funart.pro/uploads/posts/2021-12/1640264280_2-funart-pro-p-foni-iz-tsifr-2.jpg");
+}
+
+p,
+h1,
+h2,
+ol,
+li,
+ul {
+  margin: 0;
+}
+
+.page {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /*page занимает весь обзор страницы пользователем*/
+}
+
+/* customization of links*/
+a {
+  color: #960a83;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #cf0404;
+}
+
+a:active {
+  color: rgb(217, 255, 0);
+  text-decoration: line-through;
+}
+
+.local-link:hover {
+  cursor: pointer;
+}
+
+/* header, footer styles*/
+
+.header,
+.footer {
+  max-height: 100px;
+  display: flex;
+  padding: 10px 15px;
+  background-color: #22bf27;
+  color: #960a83;
+  justify-content: space-around;
+}
+
+.header {
+  font-size: 36px;
+}
+
+.footer {
+  margin-top: auto; /* для footer книзу*/
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.content {
+  /*min-height: 2000px;*/
+  margin: 0 auto;
+  padding: 40px 10px;
+}
+
+#select-bar {
+  display: grid;
+  /*?display: table;*/
+  list-style: none;
+  grid-template-columns: repeat(6, 1fr);
+  margin-bottom: 10px;
+}
+
+.select-btn {
+  /*?display: table-cell;
+  vertical-align: middle;*/
+  font-size: 20px;
+  line-height: 1.3;
+  height: 3em; /*20 * 1.3*/
+  font-family: Verdana, Geneva, Tahoma, sans-serif, Helvetica, sans-serif;
+  margin: 10px 5px;
+  border-radius: 20% / 70%;
+  background-color: #41d2ad;
+  padding: 1em 10px;
+  text-align: center;
+  text-decoration: underline;
+  color: #000;
+  cursor: pointer;
+}
+
+.select-btn:hover {
+  color: #fff;
+  text-emphasis: "↓";
+}
+
+/*for an active mini-page*/
+.active {
+  border-radius: 50% 0% !important;
+  background-color: #960a83 !important;
+  color: #31d50c !important;
+  cursor: text !important;
+  text-decoration: none !important;
+}
+
+.active:hover {
+  text-transform: none !important;
+  text-transform: uppercase !important;
+  text-emphasis: none !important;
+}
+
+.page-container > div {
+  padding: 25px 50px;
+  border-radius: 10% / 70%;
+}
+
+.intro-page {
+  margin: 10px;
+}
+
+.bg-light-blue {
+  background-color: rgb(102, 99, 252);
+}
+
+.bg-light-orange {
+  background-color: rgb(243 168 31);
+}
+
+.bg-purple {
+  background-color: #9900ff;
+}
+.bg-cyan {
+  background-color: darkcyan;
+}
+.bg-olive {
+  background-color: olive;
+}
+
+.bg-darkred {
+  background-color: maroon;
+}
+
+/* всплывающая подсказка */
+[data-tooltip] {
+  position: relative; /* Относительное позиционирование */
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip); /* Выводим текст */
+  position: absolute; /* Абсолютное позиционирование */
+  width: 300px; /* Ширина подсказки */
+  left: 0; /* Положение подсказки */
+  top: 0;
+  background: #3989c9; /* Синий цвет фона */
+  color: #fff; /* Цвет текста */
+  padding: 0.5em; /* Поля вокруг текста */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+  pointer-events: none; /* Подсказка */
+  opacity: 0; /* Подсказка невидима */
+  transition: 1s; /* Время появления подсказки */
+  z-index: 2; /*поверх текста*/
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  /* Показываем подсказку */
+  top: 2em;
+  /* Положение подсказки */
+}
+
+.tooltip-p:hover {
+  cursor: help;
+}

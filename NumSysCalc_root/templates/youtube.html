@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube курсы</title>
+    <link rel="stylesheet" href="{% static "css/about.css" %}">
+</head>
+<body class="main_content">
+    <header class="bg-green">
+        <h1 class="my_name video-tag">Video Courses</h1>
+    </header>
+    <ul class="list-youtube top-margin">
+        <li>
+            <a href="https://www.youtube.com/playlist?list=PLQOaTSbfxUtCrKs0nicOg2npJQYSPGO9r" target="_blank">Основы C++. Программирование для начинающих.</a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/watch?v=DOEtVdkKwcU&t=2692s" target="_blank">HTML для Начинающих - Практический Курс [2021]</a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/watch?v=SpCUuyZZTp8&t=56s" target="_blank">CSS для Начинающих - Практический Курс [2021]</a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/playlist?list=PL6plRXMq5RAAb9gwGqmgAoA-KIr-7CMuz" target="_blank">Многопоточность и Многопроцессорность Python. Threading & Multiprocessing Python</a>
+        </li>
+    </ul>
+    <footer class="bg-red">
+        <a href="{% url "about_page" %}">Назад</a>
+    </footer>
+</body>
+</html>

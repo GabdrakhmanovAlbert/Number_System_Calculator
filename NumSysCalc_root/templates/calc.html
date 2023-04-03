@@ -1,0 +1,61 @@
+{% load static %}
+<!-- <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
+<form action="{% url "main_page" %}"
+	method="post"
+	id="calc"
+	name="calc"
+	onsubmit=""
+>
+{% csrf_token %}
+	<div class="calc">
+		<div class="calc-screen-wrapper">
+			<!-- <textarea name="calc_textarea" type="text" id="calc-screen" autocomplete="off" placeholder="Enter:" rows="1" autofocus="autofocus">0</textarea> -->
+			{{ CalcForm.mathExpInput }}
+			<p id="hidden-answer">{{ CalcForm.mathExpInput.value }}</p>
+			<!-- <input name="mathExp" type="hidden" id="mathExp" value="0"> -->
+			{{ CalcForm.mathExp }}
+		</div>
+		<div class="buttons">
+			<div class="btn-row">
+				<div class="calc-btn-parent bg-gray ac">ac</div>
+				<div class="calc-btn-parent bg-gray plus-minus">+/-</div>
+				<div class="calc-btn-parent bg-gray percent">%</div>
+				<div class="calc-btn-parent bg-gray division">/</div>
+			</div>
+			<div class="btn-row">
+				<div class="calc-btn-parent seven">7</div>
+				<div class="calc-btn-parent eight">8</div>
+				<div class="calc-btn-parent nine">9</div>
+				<div class="calc-btn-parent bg-orange multiply">x</div>
+			</div>
+			<div class="btn-row">
+				<div class="calc-btn-parent four">4</div>
+				<div class="calc-btn-parent five">5</div>
+				<div class="calc-btn-parent six">6</div>
+				<div class="calc-btn-parent bg-orange minus">-</div>
+			</div>
+			<div class="btn-row">
+				<div class="calc-btn-parent one">1</div>
+				<div class="calc-btn-parent two">2</div>
+				<div class="calc-btn-parent three">3</div>
+				<div class="calc-btn-parent bg-orange plus">+</div>
+			</div>
+			<div class="btn-row">
+				<div class="calc-btn-parent bg-orange invertor">Inv</div>
+				<div class="calc-btn-parent zero">0</div>
+				<div class="calc-btn-parent dot">.</div>
+				<button type="submit" class="calc-btn-parent bg-orange equal" id="btn_send_smpl">=</div>
+		</div>
+	</div>
+
+		<!--скрипт блокирующий ввод букв-->
+		<script defer>
+			$('body').on('input', '#id_mathExpInput', function () {
+				this.value = this.value.replace(/[^\d\.+\-=x/%()^]+/g, '')
+			});
+		</script>
+		<!-- логика работы простого калькулятора -->
+		<script src="{% static "js/vars.js"%}"></script>
+		<script src="{% static "js/solver.js"%}"></script>
+		<script src="{% static "js/user_input.js"%}"></script>
+</form>

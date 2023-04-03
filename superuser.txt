@@ -1,0 +1,3 @@
+login: _admin
+email: gabdrakhmanovalbert7@g102.cc
+password: 1234

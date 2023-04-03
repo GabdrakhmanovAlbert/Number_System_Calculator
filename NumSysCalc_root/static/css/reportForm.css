@@ -1,0 +1,53 @@
+.class_form {
+    display: block;
+    position: relative;
+    margin: 0px auto;
+    align-items: center;
+}
+
+.form_table {
+    align-items: center;
+    margin: 0px auto;
+    border-spacing: 35px 10px;
+}
+
+.btn-submit {
+    margin: 0px auto;
+    padding: 6px 14px;
+    align-items: center;
+}
+
+.form-header {
+    margin: 0px auto 20px auto;
+    text-align: center;
+}
+
+.thanks-block-wrapper {
+    min-width: 800px;
+    margin: auto;
+}
+
+.thanks-block {
+    margin: 0px auto;
+    padding: 40px 100px;
+    color: rgb(255, 136, 0);
+    background-color: rgb(21, 222, 236);
+    display: table-cell;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.thanks-img {
+    width: 500px;
+    border-radius: 30%;
+    box-shadow: 12px 12px 6px 1px rgba(0, 0, 255, .1);
+}
+
+.right-link {
+    font-size: 25px;
+    color: blue;
+}
+
+.thanks-header {
+    margin-bottom: 15px;
+}

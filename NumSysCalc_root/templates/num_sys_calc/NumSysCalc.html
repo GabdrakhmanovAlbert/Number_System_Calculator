@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NumSysCalc</title>
+    <link rel="stylesheet" href="NumSysCalc_styles.css">
+</head>
+<body>
+<form name="CalcForm" method="post" action="" onsubmit="return ValidateCalcForm(this)">
+    <!--name="Form1"-->
+    <!--action="https://calculatori.ru/perevod-chisel.html" onsubmit="return ValidateForm1(this)"-->
+    <!--<input type="hidden" name="raschet" value="1">-->
+    <table width="760" align="center" id="table-calc-wrapper">
+        <tbody id="table-calc">
+            <tr>
+                <td id="td-input" align="center" colspan="2">
+                    <label>Введите число:
+                        <input type="text" id="calc-input" name="calc-input" value="0" autocomplete="off">
+                    </label>
+                    <!--id="Editbox1"-->
+                </td>
+            </tr>
+            <tr id="line-checkbox">
+                <!--style="text-align:right; padding: 10px 10px 25px 0px;"-->
+                <td class="left-checkbox">
+                    <!--height="74"-->
+                    <p class="font-blue label-desc">Его<br> система счисления</p>
+                    <!--<p class="font-blue"></p>-->
+                    <font  class="font-blue">Двоичная</font><input type="RADIO"
+                        name="ss" id="radio1" value="1" onclick="offOtherLeft()"><br>
+                    <font  class="font-blue">Троичная</font><input type="RADIO"
+                        name="ss" id="radio1" value="2" checked="" onclick="offOtherLeft()"><br>
+                    <font  class="font-blue">Восьмеричная</font><input type="RADIO"
+                        name="ss" id="radio1" value="3" onclick="offOtherLeft()"><br>
+                    <font  class="font-blue">Десятичная</font><input type="RADIO"
+                        name="ss" id="radio1" value="4" onclick="offOtherLeft()"><br>
+                    <font  class="font-blue">Шестнадцатиричная</font><input
+                        type="RADIO" name="ss" id="radio1" value="5" onclick="offOtherLeft()"><br>
+                    <font  class="font-blue">Другая</font><input type="RADIO" name="ss"
+                        id="radio1" value="6" onclick="onOtherLeft()"><br>
+                    <label style="display:none;" id="left-other" class="font-blue">
+                        Какая? (число) <input type="text" name="ssdrugaya" value="">
+                    </label>
+                </td>
+                <!--style="text-align:left; padding: 10px 0px 25px 10px;"-->
+                <td class="right-checkbox">
+                    <p class="font-green label-desc">Перевести<br> в</p>
+                    <!--<p class="font-green" style="text-align: center;"></p>-->
+                    <input type="RADIO" name="ss1" id="radio2" value="1" checked="" onclick="offOtherRight()">
+                    <font class="font-green" >Двоичную</font><br>
+                    <input type="RADIO" name="ss1" id="radio2" value="2" onclick="offOtherRight()">
+                    <font class="font-green" >Троичную</font><br>
+                    <input type="RADIO" name="ss1" id="radio2" value="3" onclick="offOtherRight()">
+                    <font class="font-green" >Восьмеричную</font><br>
+                    <input type="RADIO" name="ss1" id="radio2" value="4" onclick="offOtherRight()">
+                    <font class="font-green" >Десятичную</font><br>
+                    <input type="RADIO" name="ss1" id="radio2" value="5" onclick="offOtherRight()">
+                    <font class="font-green" >Шестнадцатиричную</font><br>
+                    <input type="RADIO" name="ss1" id="radio2" value="6" onclick="onOtherRight()">
+                    <font class="font-green" >Другую</font><br>
+                    <label style="display:none;" id="right-other" class="font-green">
+                        Какую? (число) <input type="text" name="ss1drugaya" value="">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <!--id="btn-send"-->
+                    <input type="button" onclick="ValidateCalcForm(this)" id="btn-send" name="btn-send" value="ПЕРЕВЕСТИ">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="ValidateForm.js"></script>
+</form>
+</body>
+</html>

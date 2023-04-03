@@ -1,0 +1,362 @@
+/**импорт шрифтов*/
+
+/* 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+font-family: 'Roboto', sans-serif;
+to use by import from https://fonts.google.com/ 
+*/
+
+/* to use font by download */
+@font-face {
+    font-family: 'ALGER';
+    src: url('../fonts/ALGER.eot');
+    src: local('ALGER'), url('../fonts/ALGER.woff') format('woff'), url('../fonts/ALGER.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: DeliciousHandrawn-Regular;
+    src: url('../fonts/DeliciousHandrawn-Regular.ttf') format('truetype');
+}
+
+/*обнулить у всех элементов отступы 
+* {
+    padding: 0;
+    margin: 0;
+}*/
+
+
+/**общая настройка шрифта и фона заднего*/
+body {
+    background-color: blanchedalmond;
+    color: darkslategray;
+
+    font-size: 14px;
+    font-weight: 900;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+/*
+    font: 15px 900 Verdana, Geneva, Tahoma, sans-serif;
+*/
+}
+
+/**центризация всей страницы*/
+/* весь body*/
+.nav_container {
+    width: 75%;
+    /*max-width: 800px;*/
+    text-align: center;
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.center_lists {
+    display: inline-block;
+}
+
+li {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+
+.header {
+    color: blueviolet;
+    font-family: DeliciousHandrawn-Regular, Verdana, sans-serif;
+    font-size: 35px;
+    margin-left: 25px;
+}
+
+/**настройка картинки*/
+/* class="avatar" -> .avatar */
+.avatar {
+    width: 300px;
+    border-radius: 50%; /* круглый  */
+    /* border-radius: 28px; - закруглённые края */
+    box-shadow: -20px -10px 12px 3px rgba(0, 0, 0, 0.25); /* Тень фотки, настроенная в браузере*/
+}
+
+/**настройка имени*/
+.my_name {
+    color: darkturquoise;
+    font-size: 35px;
+    font-weight: 100;
+    font-family: 'ALGER', sans-serif;
+}
+
+/** настройка краткой инфы о себе*/
+.info p {
+    color: rgb(3, 145, 10);
+    margin: 0; /* обнулить отступы */
+    font-style: italic; /* курсив */
+    font-weight: bold;
+    /* text-decoration: underline; нижнее подчёркивание */
+    /* text-decoration: line-through; зачёркнутый текст */
+    text-decoration: none; /* overline верхнее подчёркивание*/
+    text-transform: none; /* lowercase uppercase capitalise  */
+    letter-spacing: 1px; /* отступ между символами*/
+    word-spacing: 3px; /* отступ между словами*/
+}
+
+.info {
+    display: flex;
+}
+
+/* немного адаптивной вёрстки под телефоны*/
+/*тут текст смещается вниз когда ширина экрана меньше 700px*/
+@media (max-width: 800px) {
+    .info {
+        display: block;
+    }
+}
+
+.info_text {
+    margin-left: 40px;
+}
+
+/**настройка размера окна с сообщением*/
+/* id="message" -> #message */
+#message {
+    /* width: 284px;
+    height: 97px; */
+    min-height: 60px;
+    resize: vertical;
+    overflow: hidden;
+    /* padding: 20px; */
+}
+
+/**стилизация ссылок*/
+a {
+    color: crimson;
+    text-decoration: none;
+}
+
+/*применим селектор hover, отвечающий за наведение на ссылку*/
+a:hover {
+    color: blue;
+    text-decoration: line-through;
+}
+/*:active отвечает за момент нажатия и неотпускания ссылки*/
+a:active {
+    color: chartreuse;
+    text-decoration: underline;
+}
+/*те ссылки которые посетили */
+/*a:visited {
+    color: blueviolet;
+    text-decoration: none;
+}*/
+
+/**настройка карточек мои хобби, мои соц.сети YT-каналы*/
+.card_container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.card {
+    padding: 10px;
+    width: 50%;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.card-margin-left {
+    margin-left: 5px;
+}
+
+.card-margin-right {
+    margin-right: 5px;
+}
+
+.bg-yellow {
+    background-color: gold;
+}
+
+.bg-green {
+    background-color: greenyellow;
+}
+
+.bg-red {
+    background-color: indianred;
+}
+
+#list_YT {
+    color: aqua;
+}
+
+#list_YT:hover {
+    color: blue;
+    text-decoration: line-through;
+}
+
+#list_YT:active {
+    color: chartreuse;
+    text-decoration: underline;
+}
+
+.card-center {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    margin-bottom: 0px;
+}
+
+.padding_20 {
+    padding: 0px 20px;
+}
+
+.padding_20 a:active {
+    color: fuchsia;
+}
+
+/*адаптива под падинг карточек с уменьшением экрана*/
+@media (max-width: 800px) {
+    .card {
+        padding: 20px;
+    }
+
+    #youtube {
+        padding: 25px;
+    }
+}
+
+/**работа с таблицей*/
+.table td{
+    /*width: 50%;*/
+    padding-bottom: 2px;
+}
+
+.table td:nth-child(1) {
+    color: #000ac0;
+}
+
+/* .table td:nth-child(2) {
+    color: chocolate;
+} */
+
+.table td:nth-child(3) {
+    color: darkmagenta;
+}
+
+/*even - чётные odd - нечётные*/
+.table tr:nth-child(odd) {
+    background-color: rgb(148, 239, 148);
+}
+
+.table tr:nth-child(even) {
+    background-color: rgb(228 95 95);
+}
+
+.table th {
+    color: black;
+    background-color: orchid;
+}
+
+/**работа с youtube.html*/
+.list-youtube {
+    list-style: url('../img/icon_youtube.png');
+}
+
+.list-youtube li {
+    margin-bottom: 5px;
+}
+
+.video-tag {
+    margin-bottom: 0px;
+}
+
+.top-margin {
+    margin-top: 5px;
+}
+
+/**работа с формой*/
+.contact form {
+    text-align: left;
+}
+
+.form {
+    max-width: 550px;
+    margin: 0px auto;
+}
+
+.form-group {
+    margin: 0 0 15px 0;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: cornflowerblue;
+    /* margin: 0 0 20px 0; */
+}
+
+.form-group._error {
+    box-shadow: 0 0 15px red;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: transparent; /*обнуляет фон на полях */
+    border: none;
+    border-bottom: 2px solid #ccc;
+    color: darkred;
+    outline: none;
+    font-family: inherit;
+    /*padding: 10px 0px 5px;*/
+    margin-bottom: 5px;
+    margin-top: 2px;
+}
+
+/**размещение по горизонтали email и name */
+.row {
+    display: flex;
+}
+
+.row > .form-group {
+    width: 50%;
+    margin-right: 20px;
+}
+
+.row > .form-group:last-child {
+    margin-right: 0px;
+}
+
+/**настройка кнопки*/
+.btn {
+    background-color: dimgrey;
+    padding: 15px 20px;
+    color: darkturquoise;
+    /*border-color: dimgrey;*/
+    border: none;
+    cursor: pointer;
+    font-family: 'ALGER', sans-serif;
+}
+
+/*Кнопка белеет когда курсор на нём
+0.9 белеет слегка, 0.1 сильно белеет*/
+.btn:hover {
+    opacity: 0.9;
+}
+
+html {
+    height: 100%;
+}
+
+.main_content {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+footer p {
+    margin-left: auto;
+    margin-right: auto;
+    width: 16em;
+}
