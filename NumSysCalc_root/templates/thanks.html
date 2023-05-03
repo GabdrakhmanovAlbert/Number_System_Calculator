@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Спасибо за отзыв!{% endblock %}
+{% block static_files %}
+<!--основные стили страницы-->
+<link rel="stylesheet" href="{% static "css/styles.css" %}" />
+<link rel="stylesheet" href="{% static "css/phone.css" %}">
+<link rel="stylesheet" href="{% static "css/back_def.css" %}" />
+<link rel="stylesheet" href="{% static "css/reportForm.css" %}" />
+{% endblock %}
 {% block index %}
-<div class="thanks-block-wrapper">
-	<div class="thanks-block">
+<div class="with-img-block-wrapper">
+	<div class="with-img-block">
 		{% if name == 'Undefined' %}
-		<h1 class="thanks-header">Спасибо, что отправили ваши данные!</h1>
+		<h1 class="with-img-header">Спасибо, что отправили ваши данные!</h1>
 		{% else %}
-		<h1 class="thanks-header">Спасибо что отправили ваши данные, {{ name }}!</h1>
+		<h1 class="with-img-header">Спасибо что отправили ваши данные, {{ name }}!</h1>
 		{% endif %}
-		<img class="thanks-img" src="https://img.freepik.com/free-vector/saas-technology-abstract-concept-illustration-software-as-service-cloud-computing-application-service-customer-access-software-licensing-subscription-pricing_335657-960.jpg?w=1060&t=st=1680530972~exp=1680531572~hmac=9fa75276b3a98e781307ca69bf831af6e3b4efc9a5969b69d18e69673a74ecbc" alt="img..">
+		<!-- thanks picture -->
+		<img width="500px" class="img-block" src="https://img.freepik.com/free-vector/saas-technology-abstract-concept-illustration-software-as-service-cloud-computing-application-service-customer-access-software-licensing-subscription-pricing_335657-960.jpg?w=1060&t=st=1680530972~exp=1680531572~hmac=9fa75276b3a98e781307ca69bf831af6e3b4efc9a5969b69d18e69673a74ecbc" alt="img..">
 		<span><a class="right-link" href="{% url "main_page" %}?display_intro=none&class_intro=no&display_rep=block&class_rep=active">Назад</a></span>
 	</div>
 </div>

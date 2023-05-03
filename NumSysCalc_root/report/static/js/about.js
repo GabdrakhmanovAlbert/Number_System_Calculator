@@ -21,9 +21,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 error++;
             }
         }
+        // console.alert('validation')
         if (error > 0) {
+            // console.alert('prevent')
             event.preventDefault()  // cancel form submit
-            window.history.back()  // eq to push left arrow button in browser
+            if (navigator.userAgent.indexOf('YaBrowser') === -1) {
+                window.history.back()  // eq to push left arrow button in browser
+            }
         }
     }
 

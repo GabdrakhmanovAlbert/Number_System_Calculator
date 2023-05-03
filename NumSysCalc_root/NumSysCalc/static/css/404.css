@@ -1,0 +1,181 @@
+.wrapper-404 {
+    /* background-color: aqua; */
+    margin: auto 0;
+}
+
+.content-404 {
+    /* height: 98vh; */
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 30px 25px;
+    display: flex;
+    justify-content: space-between;
+    /* align-content: center; */
+    align-items: center;
+    flex-direction: row;
+    background-color: #6700ff;
+    color: #25ff00;
+}
+
+.flex-item:first-child {
+    /* align-self: center; */
+    margin-right: 20px;
+    padding: 10px;
+}
+
+.flex-item:last-child {
+    /* align-self: flex-start; */
+}
+
+.bg-black {
+    background-color: #000;
+}
+
+.flex-item {
+    flex-basis: 50%;
+    word-break: break-all;
+}
+
+.flex-item a {
+    display: block;
+    text-align: right;
+    margin-left: auto;
+    color: crimson;
+}
+
+.drop-down-l {
+    position: relative;
+}
+
+.drop-down-l label {
+    display: inline-block;
+}
+
+
+/* .custom-arrow {
+    position: absolute; 
+    z-index: -1; /*out of screen*/
+/*    opacity: 0; /* прозрачный */
+/*} */
+/* 
+.custom-arrow+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+.custom-arrow+label::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+} */
+
+    /* стили при наведении курсора на checkbox */
+/* .custom-arrow:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #f0ff20;
+} */
+
+/* стили для активного чекбокса (при нажатии на него) */
+/* .custom-arrow:not(:disabled):active+label::before {
+  background-color: #f10d0d;
+  border-color: #000000;
+} */
+
+    /* стили для чекбокса, находящегося в фокусе */
+/* .custom-arrow:focus+label::before {
+  box-shadow: 0 0 0 0.2rem rgb(230, 0, 255);
+} */
+
+/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+/* .custom-arrow:focus:not(:checked)+label::before {
+  border-color: #a2ff80;
+  background-color: #f0ff20;
+} */
+
+/* стили для чекбокса, находящегося в состоянии checked */
+/* .custom-checkbox:checked+label::before {
+  border-color: #ef0b0b;
+  background-color: #0bf607;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+} */
+
+
+._hidden {
+    display: none;
+    /* text-indent: 15%; */
+    /* position: absolute;
+    top: 100% */
+}
+
+.grid-last {
+    grid-area: lst;
+    text-indent: 5%;
+}
+
+.grid-last > p {
+    margin-left: 35px;
+}
+
+.header-label {
+    grid-area: snd;
+}
+
+.item-l {
+    display: grid;
+    grid-template-columns: 50px auto;
+    gap: 10px;
+    column-gap: 0px;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: "fst snd"
+                        "lst lst";
+    text-align: start;
+    /* height: 200px;
+    line-height: 200px; */
+}
+
+.img-tabs {
+    /* max-width: 100%; */
+    max-width: 50vw;
+}
+
+.item-l > * {
+    /* white-space: nowrap; */
+    overflow: hidden;
+    vertical-align: middle;
+    margin: auto 0px;
+}
+
+.arrow {
+    width: 40px;
+    height: 35px;
+    display: block;
+    position: relative;
+    grid-area: fst;
+}
+
+input[type="checkbox"] {
+    opacity: 0;
+}
+
+input[type="checkbox"] + span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/arrows.png') no-repeat;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + span  	{
+    background-position: 0 -35px;
+}

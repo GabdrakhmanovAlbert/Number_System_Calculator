@@ -1,5 +1,5 @@
 #table-calc-wrapper {
-  font-size: 22px;
+  /* font-size: 22px; */
   font-family: "Arial", Times, serif;
 }
 
@@ -49,6 +49,11 @@
 .radiobox {
   display: grid;
   gap: 10px;
+  border: none;
+}
+
+.radiobox label {
+  cursor: pointer;
 }
 
 .left-checkbox {
@@ -58,7 +63,7 @@
   border: 5px solid #7db9ff;
   border-radius: 20%;
 
-  width: 230px;
+  width: 250px;
   height: 300px;
 }
 
@@ -69,12 +74,12 @@
   border: 5px solid #17ab02;
   border-radius: 20%;
 
-  width: 230px;
+  width: 250px;
   height: 300px;
 }
 
 .num-sys-labels {
-  font-size: 15px;
+  /* font-size: 15px; */
   color: #000;
 }
 
@@ -98,11 +103,18 @@
   color: darkblue;
 }
 
-#btn-send {
+.btn-send {
   color: firebrick;
+  cursor: pointer;
   background-color: lawngreen;
   border: 5px solid;
   border-color: chocolate;
   border-radius: 50%;
   padding: 20px 20px;
+  transition: all .3s linear;
+}
+
+.btn-send:hover {
+  box-shadow: 0 0 20px #fffb00;
+  transition: all .3s linear;
 }

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Ошибка 404{% endblock %}
+{% block static_files %}
+<!--основные стили страницы-->
+<link rel="stylesheet" href="{% static "css/styles.css" %}" />
+<link rel="stylesheet" href="{% static "css/phone.css" %}">
+<link rel="stylesheet" href="{% static "css/404.css" %}" />
+<link rel="stylesheet" href="{% static "css/back_404.css" %}" />
+<link rel="stylesheet" href="{% static "css/reportForm.css" %}" />
+{% endblock %}
+
+{% block index %}
+<div class="wrapper-404">
+  <div class="content-404">
+    <div class="flex-item">
+      <!-- width="800px" -->
+      <img src="https://i.ytimg.com/vi/vRz8F62cPOM/maxresdefault.jpg" class="img-shadow img-tabs" alt="img...">
+    </div>
+    <div class="flex-item">
+      <fieldset class="drop-down-l" id="info-404">
+        <!-- class="custom-arrow" -->
+        <div class="item-l">
+          <label for="exception" class="arrow"><input name="active-text" type="checkbox" id="exception">
+              <span></span>
+          </label>
+          <span class="header-label">Exception</span>
+          <div class="grid-last _hidden">
+              <p>{{ exception }}</p>
+            </div>
+          </div>
+
+        <div class="item-l">
+          <label for="help" class="arrow"><input name="active-text" type="checkbox" id="help">
+            <span></span>
+          </label>
+          <span class="header-label">Что означает эта страница?</span>
+          <div class="grid-last _hidden">
+            <p>Эта страница отображается, потому что вы ввели некорректный url-адрес.</p>
+            <p>Пожалуйста воспользуйтесь ссылками и не пытайтесь зайти туда куда вам не надо.</p>
+          </div>
+        </div>
+
+      </fieldset>
+      <a href="{% url "main_page" %}">На главную страницу</a>
+    </div>
+  </div>
+  <script src="{% static "js/moveParagraphs.js" %}"></script>
+</div>
+{% endblock %}

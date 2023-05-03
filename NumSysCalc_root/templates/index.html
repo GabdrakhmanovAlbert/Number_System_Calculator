@@ -1,6 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Калькуляторы{% endblock %}
+{% block static_files %}
+<!--основные стили страницы-->
+<link rel="stylesheet" href="{% static "css/styles.css" %}" />
+<link rel="stylesheet" href="{% static "css/phone.css" %}">
+<link rel="stylesheet" href="{% static "css/back_def.css" %}" />
+
+<!--Подключаем библиотеку jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<!--стили простого калькулятора-->
+<link rel="stylesheet" href="{% static "css/simple_calc_styles.css" %}" />
+<!--стили калькулятора систем счисления-->
+<link rel="stylesheet" href="{% static "css/NumSysCalc_styles.css" %}" />
+
+<link rel="stylesheet" href="{% static "css/reportForm.css" %}">
+{% endblock %}
 {% block index %}
 <main class="content">
   <ul id="select-bar">
@@ -17,7 +32,7 @@
       Теория
     </li>
     <li class="select-btn" id="history_page" onclick="view_change(4);">
-      История
+      Расчёты
     </li>
     <li class="select-btn {{ Rep_css.class }} " id="report_page" onclick="view_change(5);">
       Сообщить о проблеме

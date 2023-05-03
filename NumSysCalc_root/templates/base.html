@@ -3,18 +3,13 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %} {% endblock %}</title>
+    {% block static_files %}
     <!--основные стили страницы-->
     <link rel="stylesheet" href="{% static "css/styles.css" %}" />
-    <!--Подключаем библиотеку jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <!--стили простого калькулятора-->
-    <link rel="stylesheet" href="{% static "css/simple_calc_styles.css" %}" />
-    <!--стили калькулятора систем счисления-->
-    <link rel="stylesheet" href="{% static "css/NumSysCalc_styles.css" %}" />
-
-    <link rel="stylesheet" href="{% static "css/reportForm.css" %}">
-
+    <link rel="stylesheet" href="{% static "css/phone.css" %}">
+    {% endblock %}
   </head>
   <body>
     <div class="page">
@@ -31,7 +26,8 @@
         </a>
       </header>
 
-      {% block index %} {% endblock %}
+      {% block index %}
+      {% endblock %}
 
       <footer class="footer">
         <ul>
@@ -49,4 +45,3 @@
   </body>
 </html>
 
-<!--<p>Онлайн-калькуляторы: классический, перевод по системам счисления</p>-->

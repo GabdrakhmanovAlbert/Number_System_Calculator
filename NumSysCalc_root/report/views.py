@@ -25,7 +25,6 @@ def about_page(request):
             print('Exception', e, dir(e))
             return HttpResponseServerError()
         return HttpResponseRedirect(f'../thanks/?name={name}')
-        return redirect('thanks_page', permanent=True)
     return render(request, './about.html')
 
 

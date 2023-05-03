@@ -31,11 +31,13 @@ urlpatterns = [
 if not settings.DEBUG:
     urlpatterns += [re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT})]
 
+
+handler404 = views.pageNotFound
+handler500 = views.serverError
+
 # if settings.DEBUG is False:   #if DEBUG is True it will be served automatically
 #     urlpatterns += patterns('',
 #             url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 #     )
 
 # handlers woks only settings.DEBUG = False
-handler404 = views.pageNotFound
-handler500 = views.serverError

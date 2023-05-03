@@ -22,12 +22,24 @@
     text-align: center;
 }
 
-.thanks-block-wrapper {
+.with-img-block-wrapper {
     min-width: 800px;
     margin: auto;
+    display: inline-block;
+    position: relative;
+    padding: 25px 25px;
+
+    background-color: #4CC713;
+    /* color: white; */
+
+    /* font-family: sans-serif; */
+    /* text-decoration: none;
+    font-size: 0.9em;
+    text-align: center;
+    text-indent: 15px; */
 }
 
-.thanks-block {
+.with-img-block {
     margin: 0px auto;
     padding: 40px 100px;
     color: rgb(255, 136, 0);
@@ -37,8 +49,7 @@
     align-items: center;
 }
 
-.thanks-img {
-    width: 500px;
+.img-shadow {
     border-radius: 30%;
     box-shadow: 12px 12px 6px 1px rgba(0, 0, 255, .1);
 }
@@ -48,6 +59,6 @@
     color: blue;
 }
 
-.thanks-header {
+.with-img-header {
     margin-bottom: 15px;
 }

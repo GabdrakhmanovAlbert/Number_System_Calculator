@@ -1,55 +1,48 @@
 {% load static %}
 
-<form action="{% url "main_page" %}"
-  method="post"
-  id="CalcForm"
-  name="CalcForm"
-  onsubmit="ValidateCalcForm()"
->
-{% csrf_token %}
+<form action="{% url "main_page" %}" method="post" id="CalcForm" name="CalcForm" onsubmit="ValidateCalcForm()">
+  {% csrf_token %}
   <table width="760" align="center" id="table-calc-wrapper">
     <tbody id="table-calc">
       <tr>
         <td id="td-input" align="center" colspan="2">
-            {{ NumSysCalcForm.isRight }}
-            <label> {{ NumSysCalcForm.calc_input.label }} {{ NumSysCalcForm.calc_input }}</label>
+          {{ NumSysCalcForm.isRight }}
+          <label> {{ NumSysCalcForm.calc_input.label }} {{ NumSysCalcForm.calc_input }}</label>
         </td>
       </tr>
       <tr id="line-checkbox">
         <td class="left-checkbox">
-            <fieldset class="radiobox" id="left-radiobox">
-                <legend class="font-blue label-desc">
-                    {{ NumSysCalcForm.ss.label }}
-                </legend>
-                {% for radio in NumSysCalcForm.ss %}
-                <div class="font-blue num-sys-labels">
-                    {{ radio }}
-                </div>
-                {% endfor %}
-                <label id="left-other" style="display: none;">{{ NumSysCalcForm.other_ss.label }} {{ NumSysCalcForm.other_ss }}</label>
-            </fieldset>
+          <fieldset class="radiobox" id="left-radiobox">
+            <legend class="font-blue label-desc">
+              {{ NumSysCalcForm.ss.label }}
+            </legend>
+            {% for radio in NumSysCalcForm.ss %}
+            <div class="font-blue num-sys-labels">
+              {{ radio }}
+            </div>
+            {% endfor %}
+            <label id="left-other" style="display: none;">{{ NumSysCalcForm.other_ss.label }} {{ NumSysCalcForm.other_ss
+              }}</label>
+          </fieldset>
         </td>
         <td class="right-checkbox">
-            <fieldset class="radiobox" id="right-radiobox">
-                <legend class="font-green label-desc">
-                    {{ NumSysCalcForm.ss1.label }}
-                </legend>
-                {% for radio in NumSysCalcForm.ss1 %}
-                <div class="font-green num-sys-labels">
-                    {{ radio }}
-                </div>
-                {% endfor %}
-                <label id="right-other" style="display: none;"> {{ NumSysCalcForm.other_ss1.label }} {{ NumSysCalcForm.other_ss1 }}</label>
-            </fieldset>
+          <fieldset class="radiobox" id="right-radiobox">
+            <legend class="font-green label-desc">
+              {{ NumSysCalcForm.ss1.label }}
+            </legend>
+            {% for radio in NumSysCalcForm.ss1 %}
+            <div class="font-green num-sys-labels">
+              {{ radio }}
+            </div>
+            {% endfor %}
+            <label id="right-other" style="display: none;"> {{ NumSysCalcForm.other_ss1.label }} {{
+              NumSysCalcForm.other_ss1 }}</label>
+          </fieldset>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <button
-            type="submit"
-            id="btn_send"
-            name="btn_send"
-            class="btn-submit">ПЕРЕВЕСТИ
+          <button type="submit" class="btn-send" name="btn_send" class="btn-submit">ПЕРЕВЕСТИ
           </button>
         </td>
       </tr>
@@ -58,9 +51,8 @@
 </form>
 
 {% if resultNumSysCalcForm %}
-<div style="margin: auto; width: 6em;">
-	<h1>Ответ:</h1>
-	<h2>{{ resultNumSysCalcForm }}</h2>
+<div style="margin: auto; width: fit-content;">
+  <h1 style="text-decoration: #feab04 dotted underline; color: #86fc6f;">Ответ: {{ resultNumSysCalcForm }}</h1>
 </div>
 {% else %}
 <!--here will be answer-->
@@ -74,8 +66,8 @@
 </script> -->
 
 <!-- return ValidateCalcForm()-->
-  <!--action="{% url "main_page" %}"-->
-  <!--  onsubmit="ValidateCalcForm()"-->
+<!--action="{% url "main_page" %}"-->
+<!--  onsubmit="ValidateCalcForm()"-->
 <!--<h1>Ожидания:</h1>
 <form
   id="CalcFormDEMO"
