@@ -43,18 +43,18 @@ class TranslaterSS():
 
 
 	@classmethod
-	def _convert_2sym_alpha(cls, num: int, ss: int) -> str:
+	def _convert_2sym_alpha(cls, num: int, ss: int):
 		return cls.EXTRA_NUMS.get(num % ss, str(num % ss))
 
 	@classmethod
-	def to10_float(cls, num: str, ss: int) -> str:
+	def to10_float(cls, num: str, ss: int):
 		ss_num = 0
 		for i, n in enumerate(num):
 			ss_num += int(n, 36) * (ss ** -(i + 1))
 		return str(ss_num).replace('.', ',')[1:]
 
 	@classmethod
-	def from10_int(cls, num: int, ss: int) -> str:
+	def from10_int(cls, num: int, ss: int):
 		ss_num = ''
 		if num == 0:
 			return '0'
@@ -64,7 +64,7 @@ class TranslaterSS():
 		return ss_num
 
 	@classmethod
-	def from10_float(cls, num: str, to_ss: int) -> str:
+	def from10_float(cls, num: str, to_ss: int):
 		num = float('0.' + num)
 		print(num)
 		ss_num = ','
@@ -78,13 +78,13 @@ class TranslaterSS():
 		return ss_num
 
 
-	def to10(self) -> tuple[str, str]:
+	def to10(self):
 		int_part = str(int(self.int, self.ss))
 		if self.float:
 			return (int_part, TranslaterSS.to10_float(self.float, self.ss))
 		return (int_part, '')
 
-	def from10(self) -> tuple[str, str]:
+	def from10(self):
 		try:
 			int_part = TranslaterSS.BUILTIN_FUNCS[self.ss1](int(self.int))[2:]
 		except KeyError:
