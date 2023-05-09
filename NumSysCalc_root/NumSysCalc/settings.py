@@ -30,7 +30,7 @@ CSRF_TRUSTED_ORIGINS = ['https://*.ngrok.io', 'https://*.ngrok-free.app']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Email settings
 EMAIL_HOST = os.environ['EMAIL_HOST']
