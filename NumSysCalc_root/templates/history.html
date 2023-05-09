@@ -1,22 +1,31 @@
+{% extends 'index.html' %}
+{% block title %}История вычислений пользователей{% endblock %}
 <!-- content-center -->
-<div id="history-page" class="class-text">
-  {% if history %}
-  <h1 class="header-mpages">Последние расчёты калькуляторов</h1>
-  <ol class="data-exp">
-    {% for exp in history %}
-      {% if exp.initial_ss and exp.next_ss %}
-        <li>{{ exp.initial_num }}<sub>{{ exp.initial_ss }}</sub> = {{ exp.next_num }}<sub>{{ exp.next_ss }}</sub> было выполнено в {{ exp.dt }}</li>
-      {% else %}
-        <li>{{ exp.initial_num }} = {{ exp.next_num }} было выполнено в {{ exp.dt }}</li>
-      {% endif %}
-    {% endfor %}
-  </ol>
-  {% else %}
-  <div class="with-img-block-wrapper">
-    <div class="with-img-block">
-      <h1 class="with-img-header">Вычислений произведено не было</h1>
-      <img width="500px" class="img-block" src="https://sostav.ua/app/public/images/news/2014/06/20/10124353-einstain-1-605x446.jpg?rand=0.28106684633530676" alt="img...">
+
+{% block content %}
+<div class="history-wrapper bg-olive">
+  <div id="history-page" class="class-text">
+    {% if history %}
+    <h1 class="header-mpages">Последние расчёты калькуляторов</h1>
+    <ol class="data-exp">
+      {% for exp in history %}
+        {% if exp.initial_ss %}
+        <!-- .strftime('%d.%m.%Y %H:%M') -->
+          <li>{{ exp.initial_num }}<sub>{{ exp.initial_ss }}</sub> = {{ exp.next_num }}<sub>{{ exp.next_ss }}</sub> было выполнено {{ exp.dt }}</li>
+        {% else %}
+        <!-- .strftime('%d.%m.%Y %H:%M') -->
+          <li>{{ exp.express }} = {{ exp.res }} было выполнено {{ exp.dt }}</li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+    {% else %}
+    <div class="with-img-block-wrapper">
+      <div class="with-img-block">
+        <h1 class="with-img-header">Вычислений произведено не было</h1>
+        <img width="500px" class="img-block" src="https://sostav.ua/app/public/images/news/2014/06/20/10124353-einstain-1-605x446.jpg?rand=0.28106684633530676" alt="img...">
+      </div>
     </div>
+    {% endif %}
   </div>
-  {% endif %}
 </div>
+{% endblock %}

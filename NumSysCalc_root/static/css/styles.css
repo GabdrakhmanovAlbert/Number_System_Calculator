@@ -26,23 +26,21 @@ ul {
 }
 
 /* customization of links*/
-a {
+.lnk {
   color: #960a83;
   text-decoration: none;
 }
 
-a:hover {
+.lnk:hover {
   color: #cf0404;
+  cursor: pointer;
 }
 
-a:active {
+.lnk:active {
   color: rgb(217, 255, 0);
   text-decoration: line-through;
 }
 
-.local-link:hover {
-  cursor: pointer;
-}
 
 /* header, footer styles*/
 
@@ -112,6 +110,11 @@ a:active {
   color: #000;
   cursor: pointer;
   overflow: hidden;
+}
+
+.select-btn a {
+  text-decoration: inherit;
+  color: inherit;
 }
 
 .select-btn:hover {

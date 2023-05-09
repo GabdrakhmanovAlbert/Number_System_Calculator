@@ -3,7 +3,6 @@ from django.core.mail import send_mail, BadHeaderError
 from django.shortcuts import render, HttpResponseRedirect, redirect
 from django.http import HttpResponseServerError
 
-
 # Create your views here.
 def about_page(request):
     if request.method == 'POST':

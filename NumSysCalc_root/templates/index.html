@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Калькуляторы{% endblock %}
+{% block title %}Помощь{% endblock %}
 {% block static_files %}
 <!--основные стили страницы-->
 <link rel="stylesheet" href="{% static "css/styles.css" %}" />
@@ -19,49 +19,90 @@
 {% block index %}
 <main class="content">
   <ul id="select-bar">
-    <li class="select-btn {{ intro_css.class }}" id="intro_page" onclick="view_change(0);">
-      Инструкция
-    </li>
-    <li class="select-btn {{ calc_css.class }}" id="simple_calc_page" onclick="view_change(1);">
-      Обычный Калькулятор
-    </li>
-    <li class="select-btn {{ NumSys_css.class }} " id="num_sys_calc_page" onclick="view_change(2);">
-      Калькулятор Систем Счисления
-    </li>
-    <li class="select-btn" id="theory_page" onclick="view_change(3);">
-      Теория
-    </li>
-    <li class="select-btn" id="history_page" onclick="view_change(4);">
-      Расчёты
-    </li>
-    <li class="select-btn {{ Rep_css.class }} " id="report_page" onclick="view_change(5);">
-      Сообщить о проблеме
-    </li>
+    <a href="{% url "main_page" %}">
+      <li class="select-btn {{ nav_bar.0 }}" id="intro_page">Инструкция</li>
+    </a>
+    <a href="{% url "calc_page" %}">
+      <li class="select-btn {{ nav_bar.1 }}" id="simple_calc_page">Обычный Калькулятор</li>
+    </a>
+    <a href="{% url "nsyscalc_page" %}">
+      <li class="select-btn {{ nav_bar.2 }} " id="num_sys_calc_page">Калькулятор Систем Счисления</li>
+    </a>
+    <a href="{% url "theory_page" %}">
+      <li class="select-btn {{ nav_bar.3 }}" id="theory_page">Теория</li>
+    </a>
+    <a href="{% url "data_page" %}">
+      <li class="select-btn {{ nav_bar.4 }}" id="history_page">Расчёты</li>
+    </a>
+    <a href="{% url "report_page" %}">
+      <li class="select-btn {{ nav_bar.5 }}" id="report_page">Сообщить о проблеме</li>
+    </a>
   </ul>
   <!--<br clear="all" />-->
   <div class="page-container">
-
-    <div class="intro-page-wrapper bg-light-orange" style="display: {{ intro_css.display }}">
-      {% include 'intro.html' %}
+    {% block content %}
+    <div class="intro-page-wrapper bg-light-orange">
+      <div id="intro-page" class="class-text">
+        <h1 class="header-mpages">Здраствуйте, дорогие пользователи!</h1>
+        <p>
+          На этой Веб-странице вы можете с лёгкостью преобразовывать различные числа,
+          любым удобным для вас способом.
+        </p>
+        <p>
+          По отзывам и предложениям обращайтесь во вкладку.
+          <a class="lnk" href="{% url "report_page" %}">"Сообщить о проблеме"</a>
+        </p>
+        <h2>Чтобы использовать обычный калькулятор:</h2>
+        <ol>
+          <li>
+            Перейдите во вкладку
+            <a class="lnk" href="{% url "calc_page" %}">"Обычный калькулятор"</a>
+          </li>
+          <li
+            class="tooltip-p"
+            data-tooltip="Вы можете комбинировать использование клавиатуры с кнопками"
+          >
+            Используйте кнопки или клавиатуру чтобы ввести нужное вам арифметическое
+            выражение
+          </li>
+          <li>Нажмите кнопку или клавишу "="</li>
+          <li
+            class="tooltip-p"
+            data-tooltip="Вы могли заметить, что ответ на ваше выражение находится под полем ввода калькулятора, клавишу {=} нажимать необязательно"
+          >
+            Результат вашего выражения появится на месте введённого текста
+          </li>
+        </ol>
+    
+        <h2>Чтобы использовать калькулятор систем счисления:</h2>
+        <ol>
+          <li>
+            Перейдите во вкладку
+            <a class="lnk" href="{% url "nsyscalc_page" %}">"Калькулятор систем счисления"</a>
+          </li>
+          <li>Введите число которое надо перевести.</li>
+          <li>Укажите его систему счисления.</li>
+          <li>Укажите в какую систему счисления переводить.</li>
+          <li>Нажмите кнопку "Перевести"</li>
+        </ol>
+    
+        <p class="first-p">
+          Калькулятор перевода чисел имеет одно поле для ввода. В это поле необходимо
+          ввести число которое Вы хотите перевести. После этого Вам обязательно нужно
+          указать в какой системе счисления Вы его ввели. Для этого под полем ввода
+          есть графа "Его система счисления".
+        </p>
+        <p>
+          Если Вы не нашли своей системы, то выберите графу "другая" и появится поле
+          ввода . В это поле необходимо вписать основание системы одним числом без
+          пробелов. Далее необходимо выбрать в какую систему хотите перевести данное
+          число. Если Вы опять не нашли нужной системы то введите ее в графе "другая".
+        </p>
+      </div>
     </div>
-    <div class="simple-calc-wrapper bg-darkred" style="display: {{ calc_css.display }}">
-      {% include 'calc.html' %}
-    </div>
-    <div class="num-sys-calc-wrapper bg-light-blue" style="display: {{ NumSys_css.display }}">
-      {% include 'NumSysCalc.html' %}
-    </div>
-    <div class="theory-wrapper bg-purple" style="display: none">
-      {% include 'theory.html' %}
-    </div>
-    <div class="history-wrapper bg-olive" style="display: none">
-      {% include 'history.html' %}
-    </div>
-    <div class="report-wrapper bg-cyan" style="display: {{ Rep_css.display }}">
-      {% include 'report.html' %}
-    </div>
-
+    {% endblock %}
   </div>
   <!--смена подстраниц через кнопки -->
-  <script src="{% static "js/changeMiniPages.js" %}"></script>
+  <!-- <script src="{% static "js/changeMiniPages.js" %}"></script> -->
 </main>
 {% endblock %}

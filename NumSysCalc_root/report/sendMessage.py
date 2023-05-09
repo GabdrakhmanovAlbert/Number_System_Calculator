@@ -1,28 +1,30 @@
 from datetime import datetime
-
+# import asyncio
 import requests
+from .models import TelegramSettings, Coment, Appeal
 
-from .models import TelegramSettings
 
-
-# POST: <QueryDict: {'csrfmiddlewaretoken': ['Sm892iXOv0bbZag1Rkr2OO0hCceyPW5tHqRzlocEBO8B9fpELRflTpoyxGyKbxRZ'],
-# 				   'name': ['Василий'],
-# 				   'phone_0': ['+7'],
-# 				   'phone_1': ['100'],
-# 				   'phone_2': ['1000000'],
-# 				   'message': ['дрвп\r\nп\r\nвы\r\nп\r\nвыа\r\nп\r\nп']}>
 def ctime():
 	return datetime.now().strftime('[%d/%m/%Y  %H:%M:%S]') 
 
+def save_person_db(name, phone, mess):
+	try:
+		p = Appeal.objects.get(phone=phone)
+	except Appeal.DoesNotExist:
+		p = Appeal.objects.create(name=name, phone=phone)
+	Coment.objects.create(to_phone=p, text=mess)
 
 def SendTg(queryDict):
 	# configure data
 	tg_setts = TelegramSettings.objects.get(pk=1)
 	api = 'https://api.telegram.org/bot'
+	name = queryDict["name"] if queryDict["name"] else 'Undefined'
+	phone = f'{queryDict["phone_0"]}{queryDict["phone_1"]}{queryDict["phone_2"]}'
+	message = queryDict["message"]
 	text = tg_setts.mess_temlate.format(
-		name=queryDict["name"] if queryDict["name"] else 'Undefined',
-		phone=f'{queryDict["phone_0"]}{queryDict["phone_1"]}{queryDict["phone_2"]}',
-		message=queryDict["message"]
+		name=name,
+		phone=phone,
+		message=message
 	)
 	link = f'{api}{tg_setts.token}/sendMessage'
 
@@ -32,6 +34,7 @@ def SendTg(queryDict):
 			'chat_id': tg_setts.chat_id,
 			'text': text
 		})
+		save_person_db(name, phone, message)
 	except Exception as e:
 		print(e)
 	finally:

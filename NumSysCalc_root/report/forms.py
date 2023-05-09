@@ -20,8 +20,8 @@ class PhoneWidget(forms.MultiWidget):
 									('+992', '+992'), #tadjik
 									('+998', '+998'),  #uzb
 										]),
-				forms.NumberInput(attrs={'min': f'1{(code_length - 1) * "0"}', 'max': code_length * '9'}),
-				forms.NumberInput(attrs={'min': f'1{(num_length - 1) * "0"}', 'max': num_length * '9'})
+				forms.TextInput(attrs={'minlength': 1, 'maxlength': code_length}),
+				forms.TextInput(attrs={'minlength': 1, 'maxlength': num_length})
 				]
 		super(PhoneWidget, self).__init__(widgets, attrs)
 	
@@ -38,8 +38,8 @@ class PhoneField(forms.MultiValueField):
 	def __init__(self, code_length=3, num_length=7, *args, **kwargs):
 		list_fields = [
 					forms.NullBooleanField(),
-					forms.IntegerField(),
-					forms.IntegerField()]
+					forms.CharField(),
+					forms.CharField()]
 		super(PhoneField, self).__init__(list_fields, widget=PhoneWidget(code_length, num_length), *args, **kwargs)
 	
 	def compress(self, values):

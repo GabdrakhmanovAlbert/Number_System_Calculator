@@ -24,7 +24,12 @@ from . import views
 urlpatterns = [
 	path("admin/", admin.site.urls),
 	path("", views.main_page, name='main_page'),
+    path("calc/", views.calc_page, name='calc_page'),
 	path("thanks/", views.thanks_page, name='thanks_page'),
+    path("number_system_calculator/", views.numsyscalc_page, name='nsyscalc_page'),
+    path("theory/", views.theory_page, name='theory_page'),
+    path("history/", views.data_page, name='data_page'),
+    path("report/", views.report_page, name='report_page'),
     path("about/", include('report.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

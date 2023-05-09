@@ -17,7 +17,7 @@ function findNumInCheckbox(fst, snd) {
 	return num;
 }
 
-function ValidateCalcForm() {
+function ValidateCalcForm(event) {
 	// to validate input#calc-input
 	let strFilter, text;
 	let ss = findNumInCheckbox("ss", "other_ss");
@@ -49,6 +49,13 @@ function ValidateCalcForm() {
 		document.forms["CalcForm"].elements["isRight"].value = '0';
 	} else {
 		document.forms["CalcForm"].elements["isRight"].value = '1';
+	}
+
+	if (document.forms["CalcForm"].elements["isRight"].value === '0') {
+		event.preventDefault();
+		if (navigator.userAgent.indexOf("YaBrowser") === -1) {
+			window.history.back();
+		}
 	}
 	//document.forms["CalcForm"].elements["calc-input"].focus();
 }
@@ -83,6 +90,7 @@ function manageCustomOnput() {
 
 CheckBoxes.addEventListener("change", manageCustomOnput, false);
 document.addEventListener("DOMContentLoaded", manageCustomOnput, false);
+document.forms["CalcForm"].addEventListener('submit', ValidateCalcForm)
 
 //function vievrezult() {
 //  document.getElementById("vievrezult").style.display = "block";
